@@ -1,5 +1,3 @@
-[![npm version](https://badge.fury.io/js/serverless-plugin-canary-deployments.svg)](https://badge.fury.io/js/serverless-plugin-canary-deployments)
-
 # Serverless Gradual Traffic Shifting for Lambda
 
 A Serverless plugin to implement gradual traffic shifting of Lambda functions, using lambda [traffic shifting feature](https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html)
