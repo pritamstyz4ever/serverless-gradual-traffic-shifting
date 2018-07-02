@@ -1,0 +1,7 @@
+node_modules
+.serverless
+.serverless_plugins
+mappings.json
+serverless-gradual-traffic-shifting*.tgz
+index-promise.js
+index-promise.test.js
