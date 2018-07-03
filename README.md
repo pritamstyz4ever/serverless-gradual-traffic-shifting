@@ -1,3 +1,5 @@
+[![npm version](https://badge.fury.io/js/serverless-gradual-traffic-shifting.svg)](https://badge.fury.io/js/serverless-gradual-traffic-shifting)
+
 # Serverless Gradual Traffic Shifting for Lambda
 
 A Serverless plugin to implement gradual traffic shifting of Lambda functions, using lambda [traffic shifting feature](https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html)
@@ -22,7 +24,7 @@ Furthermore, a custom Lambda can be created to route the remaining traffic after
 
 ## Usage
 
-To enable gradual deployments for Lambda functions, the `serverless.yml` should look like this:
+To enable gradual deployments for Lambda functions, the `serverless.yml` should be configured like this:
 
 ```yaml
 service: gradual-traffic-shifting
@@ -44,7 +46,7 @@ functions:
       liveVersion: 2
 ```
 
-You can see a working example in the [example folder](./example/).
+Check out the working example in the [example folder](./example/).
 
 ## Configuration
 
@@ -59,12 +61,14 @@ You can see a working example in the [example folder](./example/).
 If deploymentSettings section is defined with settings
 
 ```yaml
-custom:
-  deploymentSettings:
-      alias: Live
-      versionWeight: 0.60 #any number from 0.00 - 1 (0 - 100 %)
-      liveVersion: 2 #provived version 2 is already present
-functions:
+functons:
+  helloWorldFunction:
+    handler: index.handler
+    deploymentSettings:
+        alias: Live
+        versionWeight: 0.60 #any number from 0.00 - 1 (0 - 100 %)
+        liveVersion: 2 #provived version 2 is already present
+resources:
   ...
 ```
 In this case 60% Traffic will be routed to new version (3 after deployment) and remaining 40% wil be routed to version 2 as specifed in config.
@@ -94,12 +98,6 @@ provider:
 The plugin works with Lambda functions invoked by API Gateway, Streams, Sns, S3
 and needs the additional function version to be specfied.
 It can be further enhanced (if required) to get the existing version if present and route the remaining traffic to it.
-
-## Vulnerability
-
-Serverless framework has a vulnerability as it requires http-proxy-agent@1.0.0 which has been fixed in >=2.2.0. https://nodesecurity.io/advisories/593.
-
-This needs to be fixed by the framework. Please upgrade Serverless versions once it is updated.
 
 ## License
 

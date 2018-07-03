@@ -1,7 +1,7 @@
 {
   "name": "serverless-gradual-traffic-shifting",
   "engines": {
-    "node": ">=4.0"
+    "node": ">=6.0"
   },
   "version": "0.1.0",
   "description": "A Serverless plugin to implement gradual deployment of Lambda functions",
@@ -13,10 +13,12 @@
   "author": "Pritam Paul <pritamstyz4ever@gmail.com>",
   "license": "ISC",
   "dependencies": {
-    "bluebird": "^3.5.1",
     "flat": "^4.0.0",
-    "lodash": "^4.17.4",
-    "omit-empty": "^0.4.1"
+    "lodash": "^4.17.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pritamstyz4ever/serverless-gradual-traffic-shifting.git"
   },
   "devDependencies": {
     "chai": "^4.1.2",
