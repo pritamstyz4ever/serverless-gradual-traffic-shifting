@@ -3,7 +3,7 @@
   "engines": {
     "node": ">=6.0"
   },
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A Serverless plugin to implement gradual deployment of Lambda functions",
   "main": "index.js",
   "scripts": {
